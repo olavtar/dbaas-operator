@@ -14,6 +14,25 @@ rules:
   - get
   - patch
 - apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - ""
+  - authorization.openshift.io
+  resources:
+  - localresourceaccessreviews
+  - localsubjectaccessreviews
+  - resourceaccessreviews
+  - selfsubjectrulesreviews
+  - subjectaccessreviews
+  - subjectrulesreviews
+  verbs:
+  - create
+- apiGroups:
   - apps
   resources:
   - daemonsets
