@@ -18,7 +18,7 @@ CONTAINER_ENGINE?=docker
 
 # ORG indicates the organization that docker images will be build for & pushed to
 # CHANGE THIS TO YOUR OWN QUAY USERNAME FOR DEV/TESTING/PUSHING
-ORG ?= ecosystem-appeng
+ORG ?= olavtar
 
 # CATALOG_BASE_IMG defines an existing catalog version to build on & add bundles to
 # 0.2.0 catalog image - quay.io/ecosystem-appeng/dbaas-operator-catalog:0.2.0-wrapper
