@@ -22,7 +22,9 @@ ORG ?= olavtar
 
 # CATALOG_BASE_IMG defines an existing catalog version to build on & add bundles to
 # 0.2.0 catalog image - quay.io/ecosystem-appeng/dbaas-operator-catalog:0.2.0-wrapper
-CATALOG_BASE_IMG ?= quay.io/$(ORG)/dbaas-operator-catalog:v$(VERSION)
+# CATALOG_BASE_IMG ?= quay.io/$(ORG)/dbaas-operator-catalog:v$(VERSION)
+CATALOG_BASE_IMG ?= quay.io/ecosystem-appeng/dbaas-operator-catalog:0.2.0-wrapper
+
 
 export OPERATOR_CONDITION_NAME=dbaas-operator.v$(VERSION)
 
