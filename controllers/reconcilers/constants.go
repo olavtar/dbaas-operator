@@ -39,8 +39,8 @@ const (
 	COCKROACHDB_CHANNEL     = "alpha"
 
 	// DBAAS_DYNAMIC_PLUGIN
-	DBAAS_DYNAMIC_PLUGIN_IMG          = "quay.io/olavtar/dbaas-dynamic-plugin:0.2.0"
-	DBAAS_DYNAMIC_PLUGIN_VERSION      = "dbaas-dynamic-plugin:0.2.0"
+	DBAAS_DYNAMIC_PLUGIN_IMG          = "quay.io/olavtar/dbaas-dynamic-plugin:0.3.0"
+	DBAAS_DYNAMIC_PLUGIN_VERSION      = "dbaas-dynamic-plugin:0.3.0"
 	DBAAS_DYNAMIC_PLUGIN_NAME         = "dbaas-dynamic-plugin"
 	DBAAS_DYNAMIC_PLUGIN_DISPLAY_NAME = "OpenShift Database as a Service Dynamic Plugin"
 
