@@ -120,50 +120,6 @@ func StoreSecrets(k8sClient k8s.Client, role, sa, namespace string) (bool, error
 		log.Fatalf("unable to initialize Vault client: %v", err)
 	}
 
-	//var serviceAccount v1.ServiceAccount
-	//if err := k8sClient.Get(context.Background(), types.NamespacedName{Namespace: namespace, Name: sa}, &serviceAccount); err != nil {
-	//	fmt.Printf("StoreSecrets serviceAccount:%v", err)
-	//	return false, err
-	//}
-	//var saSecret v1.Secret
-	//var saName string
-	//
-	//for _, s := range serviceAccount.Secrets {
-	//	fmt.Printf("StoreSecrets secrets data:%v", s.Name)
-	//	if strings.Contains(s.Name, "-token-") {
-	//		saName = s.Name
-	//		fmt.Printf("StoreSecrets saName:%v", saName)
-	//		break
-	//	}
-	//}
-	//
-	//if err := k8sClient.Get(context.Background(),
-	//	types.NamespacedName{Name: saName, Namespace: namespace},
-	//	&saSecret); err != nil {
-	//	fmt.Printf("StoreSecrets saSecret error:%v", err)
-	//	return false, err
-	//}
-
-	//token, ok := saSecret.Data["token"]
-	//if !ok {
-	//	return false, fmt.Errorf("invalid token in secret")
-	//}
-	//k8sAuth, err := auth.NewKubernetesAuth(
-	//	role,
-	//	auth.WithServiceAccountToken(string(token)),
-	//)
-	//if err != nil {
-	//	return false, fmt.Errorf("unable to initialize Kubernetes auth method: %w", err)
-	//}
-	//
-	//authInfo, err := client.Auth().Login(context.TODO(), k8sAuth)
-	//if err != nil {
-	//	return false, fmt.Errorf("unable to log in with Kubernetes auth: %w", err)
-	//}
-	//if authInfo == nil {
-	//	return false, fmt.Errorf("no auth info was returned after login")
-	//}
-
 	// Authenticate
 	client.SetToken("hvs.8EQ0V3S2ORN0jwnEdwRULq04")
 
@@ -172,7 +128,7 @@ func StoreSecrets(k8sClient k8s.Client, role, sa, namespace string) (bool, error
 	}
 
 	// Write a secret
-	_, err = client.KVv2("secret/data/").Put(context.Background(), "test", secretData)
+	_, err = client.KVv2("dbaas/").Put(context.Background(), "test", secretData)
 
 	//output, err := client.Logical().Write("secret/data/dbaas", secretData)
 	//fmt.Println(output)
