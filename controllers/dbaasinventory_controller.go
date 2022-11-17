@@ -84,12 +84,12 @@ func (r *DBaaSInventoryReconciler) Reconcile(ctx context.Context, req ctrl.Reque
 	   The code here demonstrates how the dbaas-operator or provider operators can retrieve the provider credentials
 	   stored in the vault.
 	*/
-	//creds, err := v1alpha1.GetSecretFromVault(r.Client, "dbaas-operator", "dbaas/data/credentials", "dbaas-operator-controller-manager", "openshift-dbaas-operator")
-	//if err != nil {
-	//	fmt.Printf("Error retrieving creds from vault:%v", err)
-	//} else {
-	//	fmt.Printf("\nretrieved creds for sa dbaas-operator:%v\n", creds)
-	//}
+	creds, err := v1alpha1.GetSecretFromVault(r.Client, "dbaas-operator", "dbaas/data/credentials", "dbaas-operator-controller-manager", "openshift-dbaas-operator")
+	if err != nil {
+		fmt.Printf("Error retrieving creds from vault:%v", err)
+	} else {
+		fmt.Printf("\nretrieved creds for sa dbaas-operator:%v\n", creds)
+	}
 	//creds, err = v1alpha1.GetSecretFromVault(r.Client, "cloud-app", "ceh/data/database/credentials", "cloud-app", "default")
 	//if err != nil {
 	//	fmt.Printf("Error retrieving creds from vault:%v", err)

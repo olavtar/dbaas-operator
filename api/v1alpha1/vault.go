@@ -38,7 +38,7 @@ func GetSecretFromVault(k8sClient k8s.Client, role, path, sa, namespace string) 
 	// If set, the VAULT_ADDR environment variable will be the address that
 	// your pod uses to communicate with Vault.
 	config := vault.DefaultConfig() // modify for more granular configuration
-
+	config.Address = "http://vault-service-vault-infra.apps.rhoda-411-lab.51ty.p1.openshiftapps.com"
 	client, err := vault.NewClient(config)
 
 	if err != nil {
@@ -110,6 +110,7 @@ func GetSecretFromVault(k8sClient k8s.Client, role, path, sa, namespace string) 
 }
 
 func StoreSecrets(k8sClient k8s.Client, role, sa, namespace string) (bool, error) {
+	fmt.Println("\nStoreSecrets()")
 
 	config := vault.DefaultConfig()
 
@@ -124,7 +125,7 @@ func StoreSecrets(k8sClient k8s.Client, role, sa, namespace string) (bool, error
 	client.SetToken("hvs.8EQ0V3S2ORN0jwnEdwRULq04")
 
 	secretData := map[string]interface{}{
-		"password": "Hashi123",
+		"password": "test12345",
 	}
 
 	// Write a secret
@@ -136,7 +137,7 @@ func StoreSecrets(k8sClient k8s.Client, role, sa, namespace string) (bool, error
 		fmt.Printf("unable to write secret: %v", err)
 		return false, err
 	} else {
-		fmt.Println("Secret written successfully.")
+		fmt.Println("\nSecret written successfully.")
 		return true, nil
 
 	}
