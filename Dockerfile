@@ -1,7 +1,19 @@
-FROM quay.io/xiezhang7/hello-python
+ARG VERSION=23.0.1
 
-FROM python:latest
-
-FROM quay.io/keycloak/keycloak:23.0.1
+FROM --platform=linux/amd64 quay.io/keycloak/keycloak:${VERSION} AS test
 
 FROM scratch
+
+FROM quay.io/fedora/fedora:36
+
+FROM quay.io/jitesoft/alpine:3.18.0
+
+FROM debian:12-slim AS builder
+
+FROM builder
+
+FROM mikefarah/yq:4 AS yq
+
+FROM debian:12-slim AS base
+
+FROM test
