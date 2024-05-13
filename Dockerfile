@@ -1,12 +1,12 @@
 ARG VERSION=23.0.1
 
-FROM scratch
+#FROM scratch
 
 FROM quay.io/fedora/fedora:36
 
 FROM quay.io/jitesoft/alpine:3.18.0
 
-#FROM debian:12-slim AS builder
+FROM debian:12-slim AS builder
 #
 #FROM builder
 #
