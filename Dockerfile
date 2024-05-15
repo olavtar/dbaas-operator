@@ -1,17 +1,17 @@
-ARG VERSION=23.0.1
+# Stage 1: MongoDB
+FROM mongo:7.0.10-rc0-jammy AS mongo_stage
 
-#FROM scratch
+# Stage 2: Nginx
+#FROM nginx:stable-perl AS nginx_stage
 
-FROM quay.io/fedora/fedora:36
+# Stage 3: Python
+#FROM python:3.9 AS python_stage
 
-FROM quay.io/jitesoft/alpine:3.18.0
+# Stage 4: MySQL
+#FROM mysql:8.0.37-debian AS mysql_stage
 
-FROM debian:12-slim AS builder
-#
-#FROM builder
-#
-#FROM mikefarah/yq:4 AS yq
-#
-#FROM debian:12-slim AS base
+# Stage 5: PostgreSQL
+#FROM postgres:bullseye AS postgres_stage
 
-#FROM test
+# Stage 6: PHP
+#FROM php:zts-bullseye AS php_stage
